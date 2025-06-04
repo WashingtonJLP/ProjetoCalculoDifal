@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora DIFAL</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <h2>Calculo Difal Base Unica </h2>
+
+  <p>
+    <strong>Quando utilizar o cálculo do DIFAL por Base Única:</strong><br>
+    Utilize esta modalidade quando a operação for <u>interestadual</u> e o <u>consumidor final</u> for <strong>não
+      contribuinte de ICMS</strong>.
+    Este cálculo é mais simples e direto, aplicando a diferença entre as alíquotas <strong>interna do destino</strong> e
+    <strong>interestadual</strong> sobre o valor total da nota fiscal.
+  </p>
+
+  <label>Valor da Nota Fiscal:</label>
+  <input type="number" id="valorNota" step="0.01">
+
+  <label>Alíquota Interestadual (%):</label>
+  <input type="number" id="aliqInter" step="0.1">
+
+  <label>Alíquota Interna do Estado de Destino (%):</label>
+  <input type="number" id="aliqIntra" step="0.1">
+
+  <label>Percentual FCP (%):</label>
+  <input type="number" id="fcp" step="0.1">
+
+  <button onclick="calcularDifalBaseUnica()">Calcular</button>
+
+  <p id="resultado"></p>
+
+  <h2>Calculo DIFAL - Base Dupla (AC, AP, BA, CE, ES, MA, MG, MS,
+    MT, PA, PI, PR, RJ, RN, RO, RR, RS, SP, TO)</h2>
+
+  <p>
+    <strong>Quando utilizar:</strong><br>
+    Use o cálculo por Base Dupla quando o estado de destino exigir o ICMS "por dentro" (AC, AP, BA, CE, ES, MA, MG, MS,
+    MT, PA, PI, PR, RJ, RN, RO, RR, RS, SP, TO).
+  </p>
+
+  <label>Valor da Nota Fiscal:</label>
+  <input type="number" id="valorNotaDupla" step="0.01">
+
+  <label>Alíquota Interestadual (%):</label>
+  <input type="number" id="aliqInterDupla" step="0.1">
+
+  <label>Alíquota Interna do Estado de Destino (%):</label>
+  <input type="number" id="aliqIntraDupla" step="0.1">
+
+  <label>Percentual FCP (%):</label>
+  <input type="number" id="fcpDupla" step="0.1">
+
+  <button onclick="calcularDifalBaseDupla()">Calcular DIFAL (Base Dupla)</button>
+
+  <p id="resultadoDupla"></p>
+
+
+  <h2>Cálculo DIFAL - Base Dupla (AL, GO, SC)</h2>
+
+  <p>
+    <strong>Quando utilizar:</strong><br>
+    Use este cálculo quando o estado de destino for <strong> AL, GO ou SC, </strong> que utilizam a fórmula baseada na diferença entre
+    alíquotas "por dentro".
+  </p>
+
+  <label>Valor da Nota Fiscal:</label>
+  <input type="number" id="valorNotaEspecial" step="0.01">
+
+  <label>Alíquota Interestadual (%):</label>
+  <input type="number" id="aliqInterEspecial" step="0.1">
+
+  <label>Alíquota Interna do Estado de Destino (%):</label>
+  <input type="number" id="aliqIntraEspecial" step="0.1">
+
+  <label>Percentual FCP (%):</label>
+  <input type="number" id="fcpEspecial" step="0.1">
+
+  <button onclick="calcularDifalBaseDuplaAL_GO_SC()">Calcular DIFAL (Base Dupla AL/GO/SC)</button>
+
+  <p id="resultadoEspecial"></p>
+
+  <h2>Cálculo DIFAL - Base Dupla (SE)</h2>
+
+<p>
+  <strong>Quando utilizar:</strong><br>
+  Use este cálculo quando o estado de destino for <strong>**Sergipe (SE)** </strong>, que utiliza fórmula própria baseada na diferença entre alíquotas, com divisor especial.
+</p>
+
+<label>Valor da Nota Fiscal:</label>
+<input type="number" id="valorNotaSE" step="0.01">
+
+<label>Alíquota Interestadual (%):</label>
+<input type="number" id="aliqInterSE" step="0.1">
+
+<label>Alíquota Interna do Estado de Destino (%):</label>
+<input type="number" id="aliqIntraSE" step="0.1">
+
+<label>Percentual FCP (%):</label>
+<input type="number" id="fcpSE" step="0.1">
+
+<button onclick="calcularDifalBaseDuplaSE()">Calcular DIFAL (SE)</button>
+
+<p id="resultadoSE"></p>
+
+
+<h2>Cálculo DIFAL - Base Dupla (AM, PB, PE)</h2>
+
+<p>
+  <strong>Quando utilizar:</strong><br>
+  Use este cálculo quando o estado de destino for <strong>AM, PB, </strong> ou <strong>PE</strong>, que utilizam uma fórmula ajustada com ICMS de origem subtraído antes da base por dentro.
+</p>
+
+<label>Valor da Nota Fiscal:</label>
+<input type="number" id="valorNotaAM" step="0.01">
+
+<label>Alíquota Interestadual (%):</label>
+<input type="number" id="aliqInterAM" step="0.1">
+
+<label>Alíquota Interna do Estado de Destino (%):</label>
+<input type="number" id="aliqIntraAM" step="0.1">
+
+<label>Percentual FCP (%):</label>
+<input type="number" id="fcpAM" step="0.1">
+
+<button onclick="calcularDifalBaseDuplaAM_PB_PE()">Calcular DIFAL (AM/PB/PE)</button>
+
+<p id="resultadoAM"></p>
+
+
+  <script src="/calculo.js"></script>
+</body>
+
+</html>
