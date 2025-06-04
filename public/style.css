@@ -69,3 +69,93 @@ button:hover {
 p:empty {
   display: none;
 }
+
+.login-container {
+  max-width: 350px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #f3f3f3;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0366d6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #024f9c;
+}
+
+.mensagem-erro {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
+
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  height: 40px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+  
+}
+
+
+.senha-container {
+  position: relative;
+  width: 100%;
+}
+
+.senha-container i {
+  position: absolute;
+  right: 12px;
+  top: 40%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #444;
+  cursor: pointer;
+  z-index: 2;
+}
