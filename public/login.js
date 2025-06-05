@@ -1,52 +1,60 @@
-document.getElementById("loginForm").addEventListener("submit", async function (e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  const email = document.getElementById("email").value.trim();
-  const senha = document.getElementById("senha").value;
-  const mensagem = document.getElementById("mensagemLogin");
+    const usuario = document.getElementById("usuario").value.trim();
+    const senha = document.getElementById("senha").value;
 
-  mensagem.innerText = ""; // Limpa mensagens anteriores
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ usuario, senha })
+      });
 
-  try {
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ email, senha })
-    });
+      const data = await response.json();
 
-    const data = await response.json();
+      if (response.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Login realizado com sucesso!",
+          showConfirmButton: false,
+          timer: 1500
+        });
 
-    if (response.ok) {
-      mensagem.style.color = "green";
-      mensagem.innerText = "Login bem-sucedido!";
-      
-      setTimeout(() => {
-        window.location.href = "/calculo.html";
-      }, 1000);
-    } else {
-      mensagem.style.color = "red";
-      mensagem.innerText = data.message || "Erro no login.";
+        setTimeout(() => {
+          window.location.href = "/calculo.html";
+        }, 1600);
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: data.message || "Usuário ou senha incorretos."
+        });
+      }
+
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Erro de conexão",
+        text: "Não foi possível conectar ao servidor."
+      });
+      console.error("Erro na requisição:", err);
     }
+  });
 
-  } catch (err) {
-    mensagem.style.color = "red";
-    mensagem.innerText = "Erro ao conectar com o servidor.";
-    console.error("Erro na requisição:", err);
+  const toggleSenha = document.getElementById("toggleSenha");
+  const campoSenha = document.getElementById("senha");
+
+  if (toggleSenha && campoSenha) {
+    toggleSenha.addEventListener("click", () => {
+      const visivel = campoSenha.type === "text";
+      campoSenha.type = visivel ? "password" : "text";
+
+      toggleSenha.classList.toggle("fa-eye", visivel);
+      toggleSenha.classList.toggle("fa-eye-slash", !visivel);
+    });
   }
 });
-
-// Mostrar/ocultar senha
-const toggleSenha = document.getElementById("toggleSenha");
-const campoSenha = document.getElementById("senha");
-
-if (toggleSenha && campoSenha) {
-  toggleSenha.addEventListener("click", () => {
-    const visivel = campoSenha.type === "text";
-    campoSenha.type = visivel ? "password" : "text";
-
-    toggleSenha.classList.toggle("fa-eye", visivel);
-    toggleSenha.classList.toggle("fa-eye-slash", !visivel);
-  });
-}

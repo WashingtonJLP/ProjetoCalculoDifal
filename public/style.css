@@ -91,10 +91,13 @@ p:empty {
 
 .login-container input {
   width: 100%;
-  padding: 8px;
+  height: 40px;
+  padding: 6px;
   margin-bottom: 15px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
 .login-container button {
@@ -111,38 +114,6 @@ p:empty {
   background-color: #024f9c;
 }
 
-.mensagem-erro {
-  color: red;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.password-wrapper {
-  position: relative;
-}
-
-.password-wrapper i {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #666;
-}
-
-
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  height: 40px;
-  padding: 6px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  box-sizing: border-box;
-  
-}
-
 
 .senha-container {
   position: relative;
@@ -151,11 +122,16 @@ input[type="password"] {
 
 .senha-container i {
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 40%;
   transform: translateY(-50%);
   font-size: 16px;
   color: #444;
   cursor: pointer;
-  z-index: 2;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+#senha {
+  padding-right: 35px; 
 }

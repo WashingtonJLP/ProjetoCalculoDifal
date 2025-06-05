@@ -6,16 +6,13 @@
   <title>Login - Calculadora DIFAL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Ícones do site -->
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="manifest" href="/img/site.webmanifest">
 
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- CSS do projeto -->
   <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -23,20 +20,20 @@
   <div class="login-container">
     <h2>Login</h2>
     <form id="loginForm">
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" required>
+      <label for="usuario">Usuário:</label>
+      <input type="text" id="usuario" name="usuario" autocomplete="username" required>
 
       <label for="senha">Senha:</label>
-<div class="senha-container">
-  <input type="password" id="senha" required>
-  <i id="toggleSenha" class="fa-solid fa-eye"></i>
-</div>
+      <div class="senha-container">
+        <input type="password" id="senha" name="senha" required>
+        <i id="toggleSenha" class="fa-solid fa-eye"></i>
+      </div>
 
       <button type="submit">Entrar</button>
     </form>
     <p id="mensagemLogin" class="mensagem-erro"></p>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/login.js"></script>
 </body>
 
