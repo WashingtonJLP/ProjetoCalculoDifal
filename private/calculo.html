@@ -10,15 +10,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="manifest" href="/img/site.webmanifest">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-  <h2>Calculo Difal Base Unica </h2>
+  <div class="grupo-botoes">
+    <button onclick="mostrarTabelaICMS()" class="btn-tabela-icms-vermelho">
+      Ver Tabela ICMS Destino
+    </button>
+    <button onclick="mostrarTabelaInterestadual()" class="btn-tabela-icms-laranja">
+      Ver Tabela ICMS Interestadual
+    </button>
+  </div>
+
+  <h2 class="titulo-difal">Calculo Difal - Base Unica (DF)</h2>
 
   <p>
     <strong>Quando utilizar o cálculo do DIFAL por Base Única:</strong><br>
     Utilize esta modalidade quando a operação for <u>interestadual</u> e o <u>consumidor final</u> for <strong>não
-      contribuinte de ICMS</strong>.
+      contribuinte de ICMS, ou para o estado do DF</strong>.
     Este cálculo é mais simples e direto, aplicando a diferença entre as alíquotas <strong>interna do destino</strong> e
     <strong>interestadual</strong> sobre o valor total da nota fiscal.
   </p>

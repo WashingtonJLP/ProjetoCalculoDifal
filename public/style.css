@@ -135,3 +135,41 @@ p:empty {
 #senha {
   padding-right: 35px; 
 }
+
+.btn-tabela-icms-vermelho {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-tabela-icms-vermelho:hover {
+  background-color: #bb2d3b;
+}
+
+.grupo-botoes {
+  display: flex;
+  gap: 10px;
+}
+
+
+.btn-tabela-icms-laranja {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-tabela-icms-laranja:hover {
+  background-color: #e07b00;
+}
