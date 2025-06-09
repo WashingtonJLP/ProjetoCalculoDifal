@@ -30,7 +30,7 @@ function calcularDifalBaseUnica() {
     `<strong>Total a Recolher (DIFAL + FCP): R$ ${total.toFixed(2)}</strong>`;
 }
 
-  
+
 function calcularDifalBaseDupla() {
   const valorNota = parseFloat(document.getElementById("valorNotaDupla").value);
   const aliqInter = parseFloat(document.getElementById("aliqInterDupla").value);
@@ -55,7 +55,7 @@ function calcularDifalBaseDupla() {
   }
 
   const icmsOrigem = valorNota * (aliqInter / 100);
-  const divisor = 1 - (aliqIntra / 100); 
+  const divisor = 1 - (aliqIntra / 100);
   const base = (valorNota - icmsOrigem) / divisor;
 
   const icmsDestino = base * (aliqIntra / 100);
@@ -272,6 +272,45 @@ function mostrarTabelaInterestadual() {
     didOpen: () => {
       window.toggleZoomTabela = function () {
         const img = document.getElementById('imgTabelaInterestadual');
+        const isZoomed = img.style.transform === 'scale(2)';
+        img.style.transform = isZoomed ? 'scale(1)' : 'scale(2)';
+        img.style.cursor = isZoomed ? 'zoom-in' : 'zoom-out';
+      };
+    }
+  });
+}
+
+function mostrarLinksGnre() {
+  Swal.fire({
+    title: 'Emissão de GNRE por Estado',
+    html: `
+      <div style="text-align: left; font-size: 15px;">
+        <p><strong>ES:</strong> <a href="https://internet.sefaz.es.gov.br/agenciavirtual/area_publica/e-dua/icms.php" target="_blank">https://internet.sefaz.es.gov.br</a> <strong>(Código 386-7) </strong></p> 
+        <p><strong>SP:</strong> <a href="https://www4.fazenda.sp.gov.br/DareICMS/DareAvulso" target="_blank">https://www4.fazenda.sp.gov.br</a> <strong> (Código 10101) </strong></p>
+        <p><strong>Demais estados:</strong> <a href="https://www.gnre.pe.gov.br:444/gnre/v/guia/index" target="_blank">https://www.gnre.pe.gov.br</a> <strong>(Código 100102)</strong></p>
+      </div>
+    `,
+    width: 600,
+    confirmButtonText: 'Fechar',
+  });
+}
+function mostrarDiagramaVendasInterEstaduais() {
+  Swal.fire({
+    title: 'Diagrama - Vendas Interestaduais (Base Única ou Dupla?)',
+    html: `
+      <div style="overflow: auto; max-height: 80vh;">
+        <img src="/img/DiagramaVendasInterEstaduais.PNG" 
+             alt="Diagrama DIFAL" 
+             style="max-width: 100%; transition: transform 0.3s ease; cursor: zoom-in;" 
+             id="imgDiagramaDifal" 
+             onclick="toggleZoomDiagrama()" />
+      </div>
+    `,
+    width: 900,
+    confirmButtonText: 'Fechar',
+    didOpen: () => {
+      window.toggleZoomDiagrama = function () {
+        const img = document.getElementById('imgDiagramaDifal');
         const isZoomed = img.style.transform === 'scale(2)';
         img.style.transform = isZoomed ? 'scale(1)' : 'scale(2)';
         img.style.cursor = isZoomed ? 'zoom-in' : 'zoom-out';

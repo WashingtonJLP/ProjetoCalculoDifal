@@ -154,8 +154,19 @@ p:empty {
 
 .grupo-botoes {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
+
+.grupo-botoes button {
+  min-width: 150px;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+}
+
 
 
 .btn-tabela-icms-laranja {
@@ -172,4 +183,36 @@ p:empty {
 
 .btn-tabela-icms-laranja:hover {
   background-color: #e07b00;
+}
+
+.btn-linksGnre-verde {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-linksGnre-verde:hover {
+  background-color: #218838;
+}
+
+.btn-diagrama-azulclaro {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #440b58;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-diagrama-azulclaro:hover {
+  background-color: #440b58;
 }
